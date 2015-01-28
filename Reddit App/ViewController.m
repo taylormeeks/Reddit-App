@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextFieldDelegate>
 
 @end
 
@@ -24,4 +24,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Highlight field being edited
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.emailTextField]) {
+        // Email
+        [self.emailTextField setBackground:[UIImage imageNamed:@"input-outline-active"]];
+        [self.emailImageView setImage:[UIImage imageNamed:@"icon-mail-active"]];
+    } else {
+        [self.emailTextField setBackground:[UIImage imageNamed:@"input-outline"]];
+        [self.emailImageView setImage:[UIImage imageNamed:@"icon-mail"]];
+    }
+    
+    if ([textField isEqual:self.passwordTextField]) {
+        // Pass
+        [self.passwordTextField setBackground:[UIImage imageNamed:@"input-outline-active"]];
+        [self.passwordImageView setImage:[UIImage imageNamed:@"icon-password-active"]];
+    } else {
+        [self.passwordTextField setBackground:[UIImage imageNamed:@"input-outline"]];
+        [self.passwordImageView setImage:[UIImage imageNamed:@"icon-password"]];
+    }
+}
+
+- (IBAction)loginButtonTouched:(id)sender {
+    [[RKClient sharedClient] signInWithUsername:s]
+    
+}
 @end

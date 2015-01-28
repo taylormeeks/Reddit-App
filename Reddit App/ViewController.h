@@ -10,6 +10,13 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+@property (weak, nonatomic) IBOutlet UIImageView *emailImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *passwordImageView;
+
+- (IBAction)loginButtonTouched:(id)sender;
 
 @end
 
